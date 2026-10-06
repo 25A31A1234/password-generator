@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Character encoding for proper text display -->
+    <meta charset="UTF-8">
+
+    <!-- Makes the page responsive on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Title shown in the browser tab -->
+    <title>Password Generator</title>
+
+    <!-- Link to the external stylesheet -->
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    <!-- Main container that holds the whole card -->
+    <main class="container">
+
+        <!-- Page heading -->
+        <h1>Password Generator</h1>
+
+        <!-- Form section with the three input fields -->
+        <section class="form-section">
+
+            <!-- Letters input -->
+            <label for="letters">Number of Letters</label>
+            <input type="number" id="letters" name="letters" min="0" step="1" value="4" placeholder="e.g. 4">
+
+            <!-- Numbers input -->
+            <label for="numbers">Number of Numbers</label>
+            <input type="number" id="numbers" name="numbers" min="0" step="1" value="2" placeholder="e.g. 2">
+
+            <!-- Symbols input -->
+            <label for="symbols">Number of Symbols</label>
+            <input type="number" id="symbols" name="symbols" min="0" step="1" value="2" placeholder="e.g. 2">
+
+            <!-- Button that triggers password generation -->
+            <button id="generate-btn" type="button">Generate Password</button>
+        </section>
+
+        <!-- Section that shows the generated password -->
+        <section class="result-section">
+            <h2>Your Password</h2>
+
+            <!-- Password will be inserted here by script.js -->
+            <p id="password-output" class="password-output">Your password will appear here.</p>
+
+            <!-- Button to copy the password to clipboard -->
+            <button id="copy-btn" type="button">Copy Password</button>
+
+            <!-- Area to show error or success messages -->
+            <p id="message" class="message"></p>
+        </section>
+
+    </main>
+
+    <!-- Link to the external JavaScript file -->
+    <script src="/static/script.js"></script>
+</body>
+</html>

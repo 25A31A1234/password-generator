@@ -1,0 +1,255 @@
+/* ============================================
+   1. RESET & BASE STYLES
+   ============================================ */
+
+/* Remove default browser spacing and use border-box sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Style the whole page with a nice gradient background */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;   /* Center horizontally */
+    align-items: center;       /* Center vertically */
+    padding: 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #333;
+}
+
+
+/* ============================================
+   2. MAIN CARD CONTAINER
+   ============================================ */
+
+.container {
+    width: 100%;
+    max-width: 480px;                 /* Stops the card from getting too wide */
+    background: #ffffff;
+    padding: 35px 30px;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Subtle lift effect when hovering the card */
+.container:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+}
+
+
+/* ============================================
+   3. HEADING
+   ============================================ */
+
+h1 {
+    text-align: center;
+    font-size: 1.8rem;
+    color: #4a3f8f;
+    margin-bottom: 25px;
+    letter-spacing: 0.5px;
+}
+
+h2 {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+
+/* ============================================
+   4. FORM SECTION (INPUTS + BUTTONS)
+   ============================================ */
+
+.form-section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;                          /* Space between each element */
+    margin-bottom: 25px;
+}
+
+/* Labels above each input */
+.form-section label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #444;
+    margin-top: 6px;
+}
+
+/* Style all three number inputs the same way */
+.form-section input[type="number"] {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    background: #fafafa;
+    transition: border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+    outline: none;
+}
+
+/* Input focus effect */
+.form-section input[type="number"]:focus {
+    border-color: #667eea;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+}
+
+/* Remove the little up/down arrows in number inputs (optional, cleaner look) */
+.form-section input[type="number"]::-webkit-outer-spin-button,
+.form-section input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+/* ============================================
+   5. GENERATE PASSWORD BUTTON
+   ============================================ */
+
+#generate-btn {
+    margin-top: 18px;
+    padding: 13px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffffff;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    transition: transform 0.2s ease, box-shadow 0.25s ease, opacity 0.25s ease;
+}
+
+/* Hover effect */
+#generate-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(102, 126, 234, 0.4);
+    opacity: 0.95;
+}
+
+/* Click effect */
+#generate-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 10px rgba(102, 126, 234, 0.3);
+}
+
+
+/* ============================================
+   6. RESULT SECTION (PASSWORD DISPLAY + COPY)
+   ============================================ */
+
+.result-section {
+    margin-top: 10px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+/* Password output box */
+.password-output {
+    background: #f4f5ff;
+    border: 2px dashed #c7cdf5;
+    border-radius: 10px;
+    padding: 16px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.05rem;
+    color: #2b2b6b;
+    word-break: break-all;      /* Prevents long passwords from overflowing */
+    text-align: center;
+    min-height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+    transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+/* Copy button */
+#copy-btn {
+    width: 100%;
+    padding: 11px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #4a3f8f;
+    background: #ffffff;
+    border: 2px solid #667eea;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease;
+}
+
+/* Copy button hover effect */
+#copy-btn:hover {
+    background: #667eea;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+#copy-btn:active {
+    transform: translateY(0);
+}
+
+
+/* ============================================
+   7. MESSAGE (ERROR / SUCCESS TEXT)
+   ============================================ */
+
+.message {
+    margin-top: 12px;
+    text-align: center;
+    font-size: 0.9rem;
+    min-height: 20px;
+    color: #d33;              /* Default to error red */
+    transition: color 0.25s ease;
+}
+
+/* Optional success style (script.js can add this class) */
+.message.success {
+    color: #2e8b57;
+}
+
+
+/* ============================================
+   8. RESPONSIVE DESIGN
+   ============================================ */
+
+/* For tablets and smaller screens */
+@media (max-width: 600px) {
+    .container {
+        padding: 28px 20px;
+        border-radius: 12px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .password-output {
+        font-size: 0.95rem;
+        padding: 14px;
+    }
+}
+
+/* For small phones */
+@media (max-width: 380px) {
+    h1 {
+        font-size: 1.3rem;
+    }
+
+    .form-section input[type="number"] {
+        padding: 10px 12px;
+        font-size: 0.95rem;
+    }
+
+    #generate-btn,
+    #copy-btn {
+        font-size: 0.9rem;
+        padding: 11px;
+    }
+}
